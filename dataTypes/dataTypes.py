@@ -1,5 +1,6 @@
 #  String Data Types
 #  To create variable we dont have to specify variable type 
+#  We cannot perform maths on strings
 name = "Bro"
 print("hello "+name )
 
