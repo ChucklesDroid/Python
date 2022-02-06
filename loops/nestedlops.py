@@ -8,4 +8,4 @@ y = int( input("Enter columns: ") )
 for rows in range(x):
     for columns in range(y):
         print("@",end='')
-    print()
+    print()         #By default prints newline character 
