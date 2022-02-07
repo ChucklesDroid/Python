@@ -1,6 +1,6 @@
 #  Tuples :- Its a collection which is ordered, unchangeable and duplicates are allowed
 
-bio = ("Aakarsh", 21, "male")
+bio = ("Aakarsh", 21, "male") #A tuple is created
 print(bio)
 
 #  Operations that can be performed on tuples is limited to 'index' and 'count' since 
@@ -9,3 +9,6 @@ print(bio)
 print(bio.count(21)) #Displays the count of argument in tuple 'bio'
 print(bio.index("male")) #Displays the index of passed argument
 
+#looping through tuple
+for x in bio:
+    print(x,end=' ')
