@@ -1,5 +1,6 @@
 #  Dictionary is collection of key-value pairs. Dictionary is ordered(from 
 #  python 3.6 onwards), changeable and does not contain any duplicates
+They are fast since they use hashing
 
 capitals = {'US':'Washington',
             'UK':'London',
