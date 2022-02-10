@@ -1,5 +1,7 @@
 #  Exception   :- Errors detected during execution of a program that interupt the flow
                #  of program
+#  Exceptions are basically events detected during run time that interrupt the flow of
+#  programs
 
 #  x = int(input( "Enter operand 1: " ))
 #  y = int(input( "Enter operand 2: " ))
@@ -31,7 +33,8 @@ finally:
 #  Its not good practice to have a single exception block to handle all exceptions but
 #  have multiple exception blocks which will handle the specific errors first 
 
-#  finally will print message regardless an exception is caught or not 
+#  finally will print message regardless an exception is caught or not. Its present 
+#  towards the end. (Useful in File handling)
 #  else here will execute the block of message if no error occurs
 
 
