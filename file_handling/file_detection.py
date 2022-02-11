@@ -7,6 +7,8 @@ import os
 
 path = 'test.log'
 path1 = '..//lists'
+#  Alternate method is making use of 'r' in front of string to make the string a raw
+#  variable as in :- path1 = r'../lists'. 
 
 if os.path.exists(path1):
     print("location exists")
