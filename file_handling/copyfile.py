@@ -15,16 +15,17 @@
 
 #  shutil.copy2() :- shutil.copy() + copies metadata of the file such as last modified, date 
 #  created 
+#  Note:- If src and dest have same path then it would report a error
 
-import shutil                               #For copying files
-import os                                   #For checking file permissions
+import shutil                                #For copying files
+import os                                    #For checking file permissions
 
 src = 'write.test'
 dest1 = 'write(copy1).test'
 dest2 = 'write(copy2).test'
 dest3 = 'write(copy3).test'
 
-print("Permissions: ",os.stat(src).st_mode) #Displaying file permissions
+print("Permissions: ",os.stat(src).st_mode)  #Displaying file permissions
 shutil.copyfile(src,dest1)
 print("Permissions: ",os.stat(dest1).st_mode)#Displaying file permissions 
 shutil.copy(src,dest2)
@@ -33,5 +34,5 @@ shutil.copy2(src,dest3)
 print("Permissions: ",os.stat(dest3).st_mode)#Displaying file permissions 
 
 #  copying a file by specifying the directory only
-shutil.copy(src,"..")
+shutil.copy(src,"..")                        #Creates a file with same name as src path file
 print(os.listdir(".."))
