@@ -201,6 +201,6 @@ for i in range(len(matrix[0])):
 print("Transpose", transpose_matrix, sep=" ", end='\n', file=sys.stdout, flush=False)
 
 #  Writing transpose using list comprehension
-numbers = list(range(1,10))
-even_no = list(filter(lambda x: True if x%2==0 else False, numbers))
-print(even_no)
+transpose = [[x[i] for x in matrix] for i in range(len(matrix[0]))]
+print("Transpose", transpose, sep=' ', end='\n', file=sys.stdout, flush=False)
+
