@@ -204,3 +204,24 @@ print("Transpose", transpose_matrix, sep=" ", end='\n', file=sys.stdout, flush=F
 transpose = [[x[i] for x in matrix] for i in range(len(matrix[0]))]
 print("Transpose", transpose, sep=' ', end='\n', file=sys.stdout, flush=False)
 
+#  Dictionary built in data structure
+#  dictionary are collection of key-value pairs. Dictionary are ordered, mutable but no duplicate keys should be present in a given dictionary
+people = { 'sasha':4198, 'grey':4076, 'sam':4329 }
+people1 = dict({'lockhart':4290, 'dieingbird':4300, 'Tolstoy':6790})
+people2 = dict([('Bordeaux',4500), ('Paris',2300), ('Berlin',4500)])
+people3 = dict( Bordeaux=4500, Paris=2300, Berlin=4500 )
+
+print(people, people1, people2, people3, sep='\n')
+print(people.get('ronan'))  # Safer way to access values in a dictionary
+
+#  Adding values in a dictionary
+people['ronan'] = 4309
+people['groot'] = 5390
+
+#  Use of membership operator
+print( 'ronan' in people )
+print( 'sasha' not in people )
+
+#  Dictionary comprehension
+even_no = { x:x**2 for x in range(1,11) if x%2==0 }
+print(even_no, type(even_no))
