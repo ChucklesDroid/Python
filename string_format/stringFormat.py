@@ -31,4 +31,8 @@ text = "The {} jumped over the {}"
 print(text.format(animal,item))
 
 
-
+#  Making use of 'f' or 'F' before the string literal
+name = dict([("aakarsh","mj"), ("aayush","tiwary"), ("lenin","rathore")])
+for first,last in name.items():
+    print(f"{first:10} {last}")
+    #  print(F"{first:10} {last}") #its the same thing as above
