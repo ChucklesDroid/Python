@@ -143,11 +143,11 @@ list3 = list1[:]# This creates a copy of the list list1 and saves in list variab
 #  print("Happy New Year !!")
 
 #  Nested loop
-#  syntax for print( *objects, sep='', end='\n', file=sys.stdout, flush=False )    #initialised with default values
-import sys  #for sys.stdout
+#  syntax for print( *objects, sep='', end='\n', file=stdout, flush=False )    #initialised with default values
+from sys import stdout #for stdout
 for i in range(5) :
     for j in range(5) :
-        print("@", sep='', end='', file=sys.stdout, flush=False)
+        print("@", sep='', end='', file=stdout, flush=False)
     print()
 
 #  Loop control statements
@@ -186,23 +186,23 @@ full_course = ['thali', 'kimchi-rice', 'ramen']
 food=[full_course, beverages, dessert]
 for course in food:
     for item in course:
-        print(item, sep='', end=' ', file = sys.stdout, flush=False)
+        print(item, sep='', end=' ', file = stdout, flush=False)
     print()
 
 #  For creating transpose of a matrix
 matrix = [[1, 2, 3, 4], [5, 6, 7, 8]]
-print("Matrix", matrix, sep=" ", end='\n', file=sys.stdout, flush=False)
+print("Matrix", matrix, sep=" ", end='\n', file=stdout, flush=False)
 transpose_matrix = []
 for i in range(len(matrix[0])):
     matrix_row = []
     for elmnt in matrix:
         matrix_row.append(elmnt[i])
     transpose_matrix.append(matrix_row)
-print("Transpose", transpose_matrix, sep=" ", end='\n', file=sys.stdout, flush=False)
+print("Transpose", transpose_matrix, sep=" ", end='\n', file=stdout, flush=False)
 
 #  Writing transpose using list comprehension
 transpose = [[x[i] for x in matrix] for i in range(len(matrix[0]))]
-print("Transpose", transpose, sep=' ', end='\n', file=sys.stdout, flush=False)
+print("Transpose", transpose, sep=' ', end='\n', file=stdout, flush=False)
 
 #  Dictionary built in data structure
 #  dictionary are collection of key-value pairs. Dictionary are ordered, mutable but no duplicate keys should be present in a given dictionary
@@ -225,3 +225,169 @@ print( 'sasha' not in people )
 #  Dictionary comprehension
 even_no = { x:x**2 for x in range(1,11) if x%2==0 }
 print(even_no, type(even_no))
+
+#  update method for dictionary
+#  update method not only allows to add a new key-value pair but also update an existing key-value pair
+#  argument of update is usually in the form of tuples(list of tuples) or another dictionary
+temp_dictionary = {14:196, 16:256}
+even_no.update([(4,20)])            # Working with list of tuples as argument to update
+even_no.update([(12,144)])
+even_no.update(temp_dictionary)     # Working with dictionary as argument to update
+print(even_no)
+
+for x in even_no:
+    print(x, end=" ")
+print()
+
+#  Strings
+name = "bro Code!"
+#  if not name[0].isupper():
+    #  name = name.capitalize()
+    #  print("Strings", name, sep=' ')
+first_name = name[:3].upper()
+last_name = name[4:].lower()
+last_character = name[-1]
+print(last_character)
+#  print(first_name, last_name, sep=' ')
+
+#  Functions 
+def hello( name, last, age ):
+    print("Your name is "+name+" "+last)
+    print("You are"+ " "+ str(age)+ " years old")
+
+hello( "Aakarsh", "MJ", 21 )
+
+#  Return value
+def multiply(x, y):
+    return x*y
+print("Mulitplication of 2 and 3 :"+ str(multiply(2,3)))
+
+hello( age=21, name="adventerous", last="bcha" )
+
+#  Nested function calls
+#  num = input("Enter a positive whole number")
+#  num = float(num)
+#  num = abs(num)
+#  num = round(num)
+#  print(num)
+
+#  print(round(abs(float(input("Enter a positive whole number :")))))
+
+#  Variable argument list in Python
+#  using tuples ( to be used with positional arguments )
+from functools import reduce
+def sum( *args ):               #creates a variable argument list of type tuple named 'args'(we can use any variable name we want)
+    return reduce((lambda x,y : x+y),args)
+
+print(sum(1,2,3,4))
+#  using dictionary (to be used with keyword arguments)
+def name( **kwargs ):
+    for x,y in kwargs.items():
+        print(y, end=" ")
+name(first_name="aakarsh",second_name="Mj")
+print()
+
+##  String Format
+#  animal = "cow"
+#  item = "moon"
+#  Regular Method
+#  print("The {} jumps over the {}".format(animal, item))
+#  Using positional arguments
+#  print("The {1} jumps over the {0}".format(animal, item))
+#  Using keyword arguments
+#  print("The {animal} jumps over the {object}".format(animal="cow", object="moon"))
+
+#  Padding while using keyword arguments with string formatting
+#  left alignment
+#  print("The {} jumps over the {:10}.".format("cow", "moon"))
+#  print("The {} jumps over the {:<10}.".format("cow", "moon"))
+#  right alignment
+#  print("The {} jumps over the {:>10}.".format("cow", "moon"))
+#  with middle alignment
+#  print("The {animal} jumped over the {object:^10}.".format(animal="cow", object="moon"))
+#  alignment along with positional argument
+#  print("The {1} jumps over the {0:10}.".format(animal, item))
+#  alignment with keyword argument
+#  print("The {animal} jumps over the {object:10}.".format(animal="cow", object="moon"))
+
+#  Floating point numbers with string formatting
+pie=3.14159
+print("The value of pie :{:.2}".format(pie))
+
+#  Random module
+import random
+seq = [ x for x in range(0,11,2) ]
+print(random.randint(1,2))  #Generates a random integer value inclusive of both ranges
+print(random.random())        #Generates a floating point value b/w 0 and 1
+print(random.choice(seq))
+print(seq)
+random.shuffle(seq)
+print(seq)
+
+#  File detection
+path = r"/mnt/sda1/GITHUB/Python/practice.py"
+#  path = r"/mnt/sda1/GITHUB/Python"
+import os
+if os.path.exists(path):
+    print("Path is valid")
+    if os.path.isfile(path):
+        print("{}: is a file".format(path))
+    elif os.path.isdir(path):
+        print("{}: is a folder".format(path))
+else:
+    print("Path is invalid")
+
+#  Reading a file
+#  print("Reading a file")
+#  reading entire file and returning it as string
+#  file = open('demo.txt', 'rb')
+#  print(file.read())
+
+#  reading only limited characters at a time
+#  print(file.read(5))
+
+#  reading a file line by line
+#  print(file.readline())
+
+#  reading an entire file as list of lines
+#  lines = file.readlines()
+#  print(lines)
+
+#  reading a file by iterating through the file object
+#  for line in file:
+    #  print(line, end='')
+#  file.close()
+
+#  writing to file in binary format
+try:
+    with open("demo.txt", 'wb+') as file:
+        txt='This is {number} line\n'
+        for i in range(1,5):
+            file.write(txt.format(number=i).encode('utf-8'))
+        file.seek(0,0)
+        print(file.read().decode('utf-8'))
+except Exception as e:
+    print(e)
+    print("Unexpected termination")
+
+#  Copying files 
+import shutil
+#  shutil.copy("demo.txt", 'demo_copy.txt')
+#  print(os.listdir('.'))
+#  shutil.copyfile("demo.txt", 'demo_copy.txt', follow_symlinks=False)
+#  shutil.copy("demo.txt", 'demo_copy.txt', follow_symlinks=True)
+#  shutil.copy2("demo.txt", 'democopy.txt', follow_symlinks=True)
+
+#  Moving a file/folder
+#  os.replace('demo_copy.txt', '../demo_copy.txt')
+
+#  Deleting a file/folder
+#  os.remove() - removes a file 
+#  os.rmdir() - removes an empty directory
+#  shutil.rmtree() - removes a directory( regardless of it being empty or having files )
+
+#  os.remove('demo.txt')
+#  os.remove('demo_copy.txt')
+#  os.remove('democopy.txt')
+
+
