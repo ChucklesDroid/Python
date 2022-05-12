@@ -390,4 +390,28 @@ import shutil
 #  os.remove('demo_copy.txt')
 #  os.remove('democopy.txt')
 
+#  Higher order function: - function either acception functions as arguments or functions returning functions
+#  1. Passing a function
+def loud(text):
+    return text.upper()
 
+def silent(text):
+    return text.lower()
+
+def hello(func):
+    hello = func("hello")
+    print(hello)
+
+hello(loud)
+hello(silent)
+
+#  2.Returning a function
+def divisor(x):
+    def dividend(y):
+        return y/x
+    return dividend
+
+func = divisor(2)
+print(func(3))
+
+#  print( squares := [ x**2 for x in range(1,11) ] )
