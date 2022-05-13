@@ -415,3 +415,26 @@ func = divisor(2)
 print(func(3))
 
 #  print( squares := [ x**2 for x in range(1,11) ] )
+
+
+#  Multi-threading in python
+import time
+import threading
+
+def counter(num):
+    count = num
+    while count >= 0:
+        time.sleep(1)
+        print(count-num+1)
+        count += 1
+
+
+thread1 = threading.Thread(target=counter, name="Thread1", args=(100,))
+thread1.daemon = True
+thread1.start()
+
+
+print("Total threads:" + str(threading.active_count()))
+
+input("Do you want to continue")
+print("Time taken by main thread: "+ str(time.perf_counter()))
