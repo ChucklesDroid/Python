@@ -435,6 +435,7 @@ thread1.start()
 
 
 print("Total threads:" + str(threading.active_count()))
+print("Thread enumerate" + str(threading.enumerate()))
 
 input("Do you want to continue")
 print("Time taken by main thread: "+ str(time.perf_counter()))
